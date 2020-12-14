@@ -37,7 +37,7 @@
 //! trigger any assertion failures in the upstream library.
 //!
 //! ```rust
-//! # #[cfg(all(feature="rand", feature="bitcoin_hashes"))] {
+//! # #[cfg(all(feature="use-rand", feature="hashes"))] {
 //! use secp256k1_zkp::rand::rngs::OsRng;
 //! use secp256k1_zkp::{Secp256k1, Message};
 //! use secp256k1_zkp::bitcoin_hashes::sha256;
@@ -124,17 +124,17 @@ pub use secp256k1_zkp_sys as ffi;
 
 extern crate secp256k1;
 
-#[cfg(feature = "bitcoin_hashes")]
+#[cfg(feature = "hashes")]
 pub extern crate bitcoin_hashes;
 #[cfg(any(test, feature = "std"))]
 extern crate core;
-#[cfg(any(test, feature = "rand"))]
+#[cfg(any(test, feature = "use-rand"))]
 pub extern crate rand;
 #[cfg(any(test))]
 extern crate rand_core;
-#[cfg(feature = "serde")]
+#[cfg(feature = "use-serde")]
 pub extern crate serde;
-#[cfg(all(test, feature = "serde"))]
+#[cfg(all(test, feature = "use-serde"))]
 extern crate serde_test;
 #[cfg(all(test, feature = "unstable"))]
 extern crate test;
@@ -150,7 +150,7 @@ pub use secp256k1::schnorrsig;
 
 pub use key::{PublicKey, SecretKey};
 
-#[cfg(feature = "bitcoin_hashes")]
+#[cfg(feature = "hashes")]
 use bitcoin_hashes::Hash;
 
 pub use secp256k1::*;

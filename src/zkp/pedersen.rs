@@ -196,7 +196,7 @@ impl str::FromStr for PedersenCommitment {
     }
 }
 
-#[cfg(feature = "serde")]
+#[cfg(feature = "use-serde")]
 impl ::serde::Serialize for PedersenCommitment {
     fn serialize<S: ::serde::Serializer>(&self, s: S) -> Result<S::Ok, S::Error> {
         if s.is_human_readable() {
@@ -207,7 +207,7 @@ impl ::serde::Serialize for PedersenCommitment {
     }
 }
 
-#[cfg(feature = "serde")]
+#[cfg(feature = "use-serde")]
 impl<'de> ::serde::Deserialize<'de> for PedersenCommitment {
     fn deserialize<D: ::serde::Deserializer<'de>>(d: D) -> Result<Self, D::Error> {
         if d.is_human_readable() {

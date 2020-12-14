@@ -10,7 +10,7 @@ pub struct SurjectionProof {
     inner: ffi::SurjectionProof,
 }
 
-#[cfg(feature = "rand")]
+#[cfg(feature = "use-rand")]
 mod with_rand {
     use super::*;
     use rand::Rng;
